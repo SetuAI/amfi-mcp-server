@@ -25,11 +25,6 @@ Data source: AMFI's daily [NAVAll feed](https://www.amfiindia.com/spages/NAVAll.
 
 ## Install
 
-```bash
-pip install amfi-mcp-server
-```
-
-Or from source:
 
 ```bash
 git clone https://github.com/SetuAI/amfi-mcp-server.git
