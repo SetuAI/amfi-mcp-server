@@ -111,9 +111,12 @@ def _parse_nav_file(raw_text: str) -> list[dict]:
 
         scheme_code = parts[0].strip()
         isin_payout = parts[1].strip()
-        scheme_name = parts[3].strip()
-        nav_text    = parts[4].strip()
-        date_text   = parts[5].strip()
+        # Newer AMFI files add "Plan" and "Option" columns between the name
+        # and the NAV, so NAV and Date are always the last two columns.
+        # Anything between the name and the NAV is folded into the name.
+        scheme_name = " - ".join(p.strip() for p in parts[3:-2] if p.strip())
+        nav_text    = parts[-2].strip()
+        date_text   = parts[-1].strip()
 
         # The header row literally says "Scheme Code" in column 0 -- skip it.
         if not scheme_code.isdigit():

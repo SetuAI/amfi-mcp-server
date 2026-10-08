@@ -19,7 +19,7 @@
 #
 #
 #   To inspect it by hand:
-#       npx @modelcontextprotocol/inspector python3 -m amfi_mcp.server
+#       npx @modelcontextprotocol/inspector python3 server.py
 ##############################################################################
 
 from mcp.server.fastmcp import FastMCP
